@@ -91,5 +91,12 @@ end
 end
 
 def apply_clearance(cart)
-  
+  cart.each do |item, attribute_hash| 
+    if attribute_hash[:clearance] == true 
+      attribute_hash[:price] = (attribute_hash[:price] *
+      0.4).round(2) 
+    end 
+  end 
+cart 
+end
 puts "Your total is #{checkout(cart: cart, coupons: coupons)}"
